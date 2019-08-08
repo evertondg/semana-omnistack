@@ -1,9 +1,17 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const cors = require("cors");
+
 const routes = require("./routes");
 
 const server = express();
 
+
+mongoose.connect('mongodb+srv://evertondg:010114@everton-estudo-s9xxz.mongodb.net/banco?retryWrites=true&w=majority', {
+  useNewUrlParser: true
+});
+
+server.use(cors());
 server.use(express.json());
 server.use(routes);
 
